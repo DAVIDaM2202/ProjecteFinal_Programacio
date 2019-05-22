@@ -33,7 +33,7 @@ public class Aplication {
         }while (sortir);
 
     }
-    //Demanem les dades al client i cridem al dao per afegir el client
+
     public void login(){
         System.out.print("Nom:");
         nomgeneral= teclado.nextLine();
@@ -46,7 +46,7 @@ public class Aplication {
             sortir = false;
 
         }    }
-    //Crear una reserva
+
     public void registrarse(){
 
         System.out.print("Nom:");
@@ -69,7 +69,6 @@ public class Aplication {
 
     }
 
-
     public void veureActivitats(){
         dao_client.veureActivitats();
     }
@@ -89,6 +88,7 @@ public class Aplication {
             }
         }while (sortir1);
     }
+
     public void crearActivitat(){
         System.out.print("Nom:");
         String nom= teclado.nextLine();

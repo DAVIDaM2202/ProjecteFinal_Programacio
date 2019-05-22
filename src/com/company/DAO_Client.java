@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 
 public class DAO_Client {
-    //Login
+    //Fem el Login
     public boolean Login(String nom, String Contra) {
         DB_Utils db_utils = new DB_Utils();
 
@@ -31,7 +31,7 @@ public class DAO_Client {
         return false;
     }
 
-    //Registre
+
     public boolean Registre(String nom, String cognom,String correu,String user,String password){
         DB_Utils db_utils = new DB_Utils();
         String query = "select * from userdjango";
@@ -73,9 +73,6 @@ public class DAO_Client {
         db_utils.DB_Disconnect(db_utils.ConnectDB());
     }
 
-
-
-    //Agafem tots els hotels
     public void veureActivitats() {
         DB_Utils db_utils = new DB_Utils();
         String query = "select * from activitat";
