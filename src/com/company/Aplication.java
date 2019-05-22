@@ -11,9 +11,9 @@ public class Aplication {
     DAO_Client dao_client = new DAO_Client();
     boolean sortir = true;
     boolean sortir1 = true;
-
     String nomgeneral= "";
-
+    //En els seguents metodos el primer que ens demanra sera fer un login o un registre, en el cas que el login no sigui correcte no ens deixara entrar
+    //Un cop dins veurem les activitats i podrem crear una activitat.
     public void aplication(){
         do {
             System.out.println("Benvingut a la nostra web:\n" +
@@ -96,7 +96,7 @@ public class Aplication {
         String descripcio= teclado.nextLine();
         System.out.print("Dia - YYYY-MM-DD:");
         String dia= teclado.nextLine();
-        System.out.print("Dia Final - YYYY-MM-DD");
+        System.out.print("Dia Final - YYYY-MM-DD:");
         String diafinal= teclado.nextLine();
         System.out.print("Localitat:\n");
         dao_client.veureLocalitats();

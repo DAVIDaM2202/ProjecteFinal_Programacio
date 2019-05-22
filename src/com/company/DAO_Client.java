@@ -31,7 +31,7 @@ public class DAO_Client {
         return false;
     }
 
-
+    //Fem el Registre
     public boolean Registre(String nom, String cognom,String correu,String user,String password){
         DB_Utils db_utils = new DB_Utils();
         String query = "select * from userdjango";
@@ -53,7 +53,7 @@ public class DAO_Client {
 
         return false;
     }
-
+    //Creem una activitat
     public void crarActivitat(String nom,String descripcio,String dia,String diafinal,Integer localitat,Integer categoria,String nomgeneral){
         DB_Utils db_utils = new DB_Utils();
         String query1 = "select * from activitat";
@@ -72,7 +72,7 @@ public class DAO_Client {
         }
         db_utils.DB_Disconnect(db_utils.ConnectDB());
     }
-
+    //Mostrem les Activitats
     public void veureActivitats() {
         DB_Utils db_utils = new DB_Utils();
         String query = "select * from activitat";
@@ -91,7 +91,7 @@ public class DAO_Client {
         }
         db_utils.DB_Disconnect(db_utils.ConnectDB());
     }
-
+    //Mostrem les localitats
     public void veureLocalitats() {
         DB_Utils db_utils = new DB_Utils();
         String query = "select * from localitat";
@@ -106,6 +106,7 @@ public class DAO_Client {
         }
         db_utils.DB_Disconnect(db_utils.ConnectDB());
     }
+    //Mostrem les categories
     public void veureCategories() {
         DB_Utils db_utils = new DB_Utils();
         String query = "select * from categoria";
@@ -120,13 +121,6 @@ public class DAO_Client {
         }
         db_utils.DB_Disconnect(db_utils.ConnectDB());
     }
-
-
-
-
-
-
-
 }
 
 
