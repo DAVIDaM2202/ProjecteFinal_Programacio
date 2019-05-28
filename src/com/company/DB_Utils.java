@@ -19,6 +19,7 @@ public class DB_Utils {
     public void DB_Disconnect(Connection connection){
         try {
             connection.close();
+            connection.close();
         }catch (SQLException e){
             e.printStackTrace();
         }

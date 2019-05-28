@@ -79,10 +79,12 @@ public class Aplication {
                     "========================================================\n" +
                     "Seleccioni l'acció a realitzar:\n"+
                     "1.- Crear Activitat\n" +
+                    "2.- Veure les meves Activitats\n"+
                     "Sortir.- Sortir");
             String  opciotriada= teclado.nextLine();
             switch (opciotriada){
                 case "1":crearActivitat();break;
+                case "2":lesMevesActivitats();
                 case "Sortir":sortir1=false;
                     System.out.println("Fins aviat!!!");break;
             }
@@ -106,6 +108,9 @@ public class Aplication {
         String categoria = teclado.nextLine();
         dao_client.crarActivitat(nom,descripcio,dia,diafinal,Integer.parseInt(localitat),Integer.parseInt(categoria),nomgeneral);
         veureActivitats();
+    }
+    public void lesMevesActivitats(){
+        dao_client.lesMevesActivitats(nomgeneral);
 
     }
 

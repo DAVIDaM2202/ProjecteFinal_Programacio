@@ -85,6 +85,30 @@ public class DAO_Client {
             while (select.next()) {
                 System.out.println(select.getString("nom") + "\n\t" + select.getString("descripcio") + "\n\t" + select.getString("dia")
                         + "\n\t" + select.getString("diafinal"));
+                System.out.println("Categoria: "+veureCategoriesEspecifica(select.getInt("categoria")));
+                System.out.println("Localitat: "+veureLocalitatEspecifica(select.getInt("localitat")));            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        db_utils.DB_Disconnect(db_utils.ConnectDB());
+    }
+    //Mostrem les meves Activitats
+    public void lesMevesActivitats(String nom) {
+        DB_Utils db_utils = new DB_Utils();
+        String query = "select * from activitat a inner join persona p on a.id = p.id where p.nom= '"+nom+"'";
+        try {
+            ResultSet select = db_utils.DB_Execute(query, db_utils.ConnectDB());
+
+            System.out.println("Li mostrem les nostres activitats \n"+
+                    "============================"
+            );
+
+            while (select.next()) {
+                System.out.println(select.getString("nom") + "\n\t" + select.getString("descripcio") + "\n\t" + select.getString("dia")
+                        + "\n\t" + select.getString("diafinal"));
+                System.out.println("Categoria: "+veureCategoriesEspecifica(select.getInt("categoria")));
+                System.out.println("Localitat: "+veureLocalitatEspecifica(select.getInt("localitat")));
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -120,6 +144,48 @@ public class DAO_Client {
             e.printStackTrace();
         }
         db_utils.DB_Disconnect(db_utils.ConnectDB());
+    }
+    //Mostrem la Categoria Especifica
+    public String veureCategoriesEspecifica(int id) {
+        DB_Utils db_utils = new DB_Utils();
+        String query = "select * from categoria where id ="+id;
+        try {
+            ResultSet select = db_utils.DB_Execute(query, db_utils.ConnectDB());
+String nom ="";
+            while (select.next()) {
+               nom=""+select.getString("nom") + "";
+            }
+            db_utils.DB_Disconnect(db_utils.ConnectDB());
+            return nom;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        db_utils.DB_Disconnect(db_utils.ConnectDB());
+        return null;
+
+    }
+    //Mostrem la Localitat Especifica
+    public String veureLocalitatEspecifica(int id) {
+        DB_Utils db_utils = new DB_Utils();
+        String query = "select * from localitat where id ="+id;
+        try {
+            ResultSet select = db_utils.DB_Execute(query, db_utils.ConnectDB());
+            String nom ="";
+            while (select.next()) {
+                nom=""+select.getString("nom") + "";
+            }
+            db_utils.DB_Disconnect(db_utils.ConnectDB());
+            return nom;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        db_utils.DB_Disconnect(db_utils.ConnectDB());
+        return null;
+
     }
 }
 
